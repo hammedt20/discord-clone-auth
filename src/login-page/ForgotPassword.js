@@ -5,24 +5,11 @@ import AuthContext from '../context/AuthContext'
 import { Link } from 'react-router-dom'
 
 const ForgotPassword = () => {
-  const {resetpassword,} = useContext(AuthContext)
+  const {resetpassword, formData, handleform} = useContext(AuthContext)
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const [formData, setFormData] = useState({
-    email: ''
-  })
-
-  const handleform = (e) =>{
-    const {name, value} = e.target
-    setFormData(prevState => {
-      return({
-        ...prevState,
-        [name]: value
-      })
-    })
-  }
 
   async function handleSubmit(e){
     e.preventDefault()

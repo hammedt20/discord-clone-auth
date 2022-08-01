@@ -13,31 +13,31 @@ export default AuthContext
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   password: '',
-  //   email: '',
-  //   confirmPassword: ''
-  // })
+  const [formData, setFormData] = useState({
+    name: '',
+    password: '',
+    email: '',
+    confirmPassword: ''
+  })
 
-  // const handleform = (e) =>{
-  //   const {name, value} = e.target
-  //   setFormData(prevState => {
-  //     return({
-  //       ...prevState,
-  //       [name]: value
-  //     })
-  //   })
-  // }
+  const handleform = (e) =>{
+    const {name, value} = e.target
+    setFormData(prevState => {
+      return({
+        ...prevState,
+        [name]: value
+      })
+    })
+  }
 
-  // const refresh = () => {
-  //   setFormData({
-  //     name: '',
-  //     password: '',
-  //     email: '',
-  //     confirmPassword: ''
-  //   })
-  // }
+  const refresh = () => {
+    return setFormData({
+      name: '',
+      password: '',
+      email: '',
+      confirmPassword: ''
+    })
+  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
@@ -72,10 +72,10 @@ export const AuthProvider = ({ children }) => {
     signUp,
     logIn,
     logOut,
-    resetpassword
-    // handleform,
-    // formData,
-    // refresh
+    resetpassword,
+    handleform,
+    formData,
+    refresh
   }
 
   return (

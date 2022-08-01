@@ -5,27 +5,11 @@ import AuthContext from '../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Signup = () => {
-  const {signUp} = useContext(AuthContext)
+  const {signUp, formData, handleform} = useContext(AuthContext)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const Navigate = useNavigate()
 
-  const [formData, setFormData] = useState({
-    name: '',
-    password: '',
-    email: '',
-    confirmPassword: ''
-  })
-
-  const handleform = (e) =>{
-    const {name, value} = e.target
-    setFormData(prevState => {
-      return({
-        ...prevState,
-        [name]: value
-      })
-    })
-  }
 
   async function handleSubmit(e){
     e.preventDefault()

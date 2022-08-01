@@ -6,7 +6,7 @@ import './styles.css'
 
 const Navbar = () => {
   const [error, setError] = useState('')
-  const {logOut} = useContext(AuthContext)
+  const {logOut, refresh} = useContext(AuthContext)
   const Navigate = useNavigate()
 
   async function handleLogout(){
@@ -15,7 +15,7 @@ const Navbar = () => {
       setError('')
       await logOut()
       Navigate('/login')
-      // refresh()
+      refresh()
     } catch{
       setError('Failed to Log out')
     }

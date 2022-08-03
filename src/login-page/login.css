@@ -92,6 +92,7 @@ button{
   justify-content: center;
 }
 .signup-container{
+  width: 80%;
   max-width: 500px;
   background-color: var(--text-color);
   padding: 2rem;
@@ -146,4 +147,9 @@ button{
   color: red;
   font-weight: 400;
   display: hidden;
+}
+@media (max-width: 768px){
+  .signup-container{
+    padding: 1.5rem;
+  }
 }

@@ -11,7 +11,7 @@ import './styles.css'
 const Navbar = () => {
   const [error, setError] = useState('')
   const [showBar, setShowBar] = useState(false)
-  const {logOut, refresh} = useContext(AuthContext)
+  const {logOut, refresh, currentUser} = useContext(AuthContext)
   const Navigate = useNavigate()
 
   function handleBar (){
@@ -46,7 +46,7 @@ const Navbar = () => {
         <li>Careers</li>
       </ul>
       <div className='nav-button'>
-        <button onClick={handleLogout} className='btn'>Log out</button>
+        <button onClick={handleLogout} className='btn'>Log {!currentUser ? 'out' : 'in'}</button>
         <button className='hamburger' onClick={handleBar}><GiHamburgerMenu /></button>
       </div>
       <div className={showBar ? 'sidebar' : 'hidebar'}>
